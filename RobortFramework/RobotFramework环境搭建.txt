@@ -1,0 +1,27 @@
+环境搭建：
+1、下载python2.7，安装后配置好环境变量  PYTHON_HOME='C:\Python27'   ，然后在系统环境变量中的path中添加 ：  %PYTHON_HOME%;%PYTHON_HOME%\Scripts
+
+
+2、安装Python的setupTools 和pip 插件 
+https://github.com/277169949/mystydy_notes/tree/master/RobortFramework/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%89%80%E9%9C%80%E5%AE%89%E8%A3%85%E5%8C%85
+将下载下来的压缩包解压后，进入到setup.py文件所在的目录下，执行 python setup.py install进行插件的安装
+
+
+3、下载好wxPython 2.8： 
+https://sourceforge.net/projects/wxpython/files/wxPython/2.8.12.1/ 
+根据你的系统下载 
+wxPython2.8-win64-unicode-2.8.12.1-py27.exe或 
+wxPython2.8-win32-unicode-2.8.12.1-py27.exe
+pip install -U wxPython
+
+
+4、在线安装其他插件 （pip --proxy=http://username:password@proxy:port install 模块名）
+
+pip install robotframework
+pip install robotframework-ride
+
+
+5、安装可选依赖包
+pip install  robotframework-selenium2library  （UI自动化需要）
+pip install requests  （接口自动化测试需要）
+ 
