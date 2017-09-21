@@ -1,0 +1,26 @@
+chef 安装
+
+wget https://packages.chef.io/files/stable/chef-server/12.15.8/ubuntu/16.04/chef-server-core_12.15.8-1_amd64.deb
+dpkg -i chef-server-core_*.deb
+chef-server-ctl reconfigure
+chef-server-ctl user-create admin admin admin libo277169949@gmail.com 123456 -f admin.pem
+chef-server-ctl org-create digitalocean "DigitalOcean, Inc." --association_user admin -f digitalocean-validator.pem
+apt-get update
+apt-get install git
+cd ~
+git clone https://github.com/chef/chef-repo.git
+git config --global user.name "277169949"
+git config --global user.email "277169949@qq.com"
+echo ".chef" >> ~/chef-repo/.gitignore
+cd ~/chef-repo
+git add .
+git commit -m "Excluding the ./.chef directory from version control"
+cd ~/
+wget https://packages.chef.io/files/stable/chefdk/2.0.28/ubuntu/16.04/chefdk_2.0.28-1_amd64.deb
+sudo dpkg -i chefdk_*.deb
+chef verify
+echo 'eval "$(chef shell-init bash)"' >> ~/.bash_profile
+source ~/.bash_profile
+mkdir ~/chef-repo/.chef
+cp /root/admin.pem ~/chef-repo/.chef
+cp /root/digitalocean-validator.pem ~/chef-repo/.chef
